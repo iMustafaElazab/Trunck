@@ -1,0 +1,24 @@
+{
+  // Format a file on save. A formatter must be available, the file must not be auto-saved, and editor must not be shutting down.
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  // Enable/disable default JavaScript formatter (For Prettier)
+  "javascript.format.enable": false,
+
+  // Enable/disable default JSON formatter (For Prettier)
+  "json.format.enable": false,
+
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+
+  "files.associations": {
+    "**/.vscode/*.json": "jsonc",
+    "**/src/translations/*.json": "jsonc"
+  },
+
+  "[javascript][javascriptreact][typescript][typescriptreact][json][jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

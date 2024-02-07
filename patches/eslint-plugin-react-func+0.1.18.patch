@@ -1,0 +1,24 @@
+diff --git a/node_modules/eslint-plugin-react-func/lib/rules/max-lines-per-function.js b/node_modules/eslint-plugin-react-func/lib/rules/max-lines-per-function.js
+index 80f93ea..0bb3914 100644
+--- a/node_modules/eslint-plugin-react-func/lib/rules/max-lines-per-function.js
++++ b/node_modules/eslint-plugin-react-func/lib/rules/max-lines-per-function.js
+@@ -279,8 +279,8 @@ module.exports = {
+             const baseFunctionLineNum = 2
+             lineCount = lineCount - argumentsLineNum - baseFunctionLineNum;
+ 
+-            const isOverLength = lineCount > maxLines;
+-            const isError = isOverLength && !isReactEle(node);
++            const maxLinesToCheck = (maxLines >= 150 || !isReactEle(node)) ? maxLines : 150;
++            const isError = lineCount > maxLinesToCheck;
+ 
+             if (isError) {
+                 const functionName = getFunctionNameWithKind(node);
+@@ -289,7 +289,7 @@ module.exports = {
+                 context.report({
+                     node,
+                     messageId: "exceed",
+-                    data: { name, lineCount, maxLines }
++                    data: { name, lineCount, maxLines: maxLinesToCheck }
+                 });
+             }
+         }

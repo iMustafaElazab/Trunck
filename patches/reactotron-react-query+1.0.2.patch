@@ -1,0 +1,24 @@
+@ -1,23 +0,0 @@
+diff --git a/node_modules/reactotron-react-query/build/main/lib/reactotron-helpers.d.ts b/node_modules/reactotron-react-query/build/main/lib/reactotron-helpers.d.ts
+index f860266..72a5c04 100644
+--- a/node_modules/reactotron-react-query/build/main/lib/reactotron-helpers.d.ts
++++ b/node_modules/reactotron-react-query/build/main/lib/reactotron-helpers.d.ts
+@@ -1,3 +1,3 @@
+-import { ReactotronCore } from 'reactotron-core-client';
++import { ReactotronReactNative } from 'reactotron-react-native';
+ import { QueryCacheNotifyEvent } from './query-cache-notify-event.interface';
+-export declare const broadcastReactQueryEvent: (reactotron: ReactotronCore, event: QueryCacheNotifyEvent | undefined) => void;
++export declare const broadcastReactQueryEvent: (reactotron: ReactotronReactNative, event: QueryCacheNotifyEvent | undefined) => void;
+diff --git a/node_modules/reactotron-react-query/build/main/lib/reactotron-react-query.d.ts b/node_modules/reactotron-react-query/build/main/lib/reactotron-react-query.d.ts
+index 3764ba1..c6877a7 100644
+--- a/node_modules/reactotron-react-query/build/main/lib/reactotron-react-query.d.ts
++++ b/node_modules/reactotron-react-query/build/main/lib/reactotron-react-query.d.ts
+@@ -1,6 +1,6 @@
+-import { ReactotronCore } from 'reactotron-core-client';
++import { ReactotronReactNative } from 'reactotron-react-native';
+ import { QueryClientManager } from './query-client-manager';
+-declare function reactotronReactQuery(queryClientManager: QueryClientManager): (reactotron: ReactotronCore) => {
++declare function reactotronReactQuery(queryClientManager: QueryClientManager): (reactotron: ReactotronReactNative) => {
+     onCommand: ({ type, payload }: {
+         type: string;
+         payload?: any;

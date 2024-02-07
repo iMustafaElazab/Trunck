@@ -1,0 +1,24 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <!-- AppTheme parent changed for "react-native-bars". -->
+    <style name="AppTheme" parent="Theme.EdgeToEdge">
+        <!-- Customize your theme here. -->
+        <item name="android:editTextBackground">@drawable/rn_edit_text_material</item>
+
+        <!-- Disable forcing dark mode. -->
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+
+        <!-- optional, used to enforce the initial bars styles -->
+        <!-- default is true in light mode, false in dark mode -->
+        <item name="darkContentBarsStyle">true</item>
+    </style>
+
+    <!-- BootTheme should inherit from Theme.BootSplash or Theme.BootSplash.EdgeToEdge -->
+    <style name="BootTheme" parent="Theme.BootSplash.EdgeToEdge">
+        <item name="bootSplashBackground">@color/bootsplash_background</item>
+        <item name="bootSplashLogo">@drawable/bootsplash_logo</item>
+        <item name="postBootSplashTheme">@style/AppTheme</item>
+    </style>
+
+</resources>

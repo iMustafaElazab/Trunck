@@ -1,0 +1,23 @@
+{
+  "app_name": "First",
+  "error_fallback_title": "Oops, Something Went Wrong",
+  "error_fallback_message": "The app ran into a problem and could not continue. We apologize for any inconvenience this has caused! Press the button below to restart the app.",
+  "restart_app": "Restart App",
+  "session_expired": "Your login session has been expired.\nPlease login again.",
+  "ok": "OK",
+  "internet_lost": "Internet connection lost!",
+  "error_processing_request": "Error while processing your request",
+  "error_open_url": "Error while opening URL\nMake sure you have a browser app installed",
+  "error_open_mail": "Error while opening mail\nMake sure you have a mail app installed",
+  "error_open_phone": "Error while opening phone\nMake sure you have a phone app installed",
+  "error_open_whats_app": "Error while opening WhatsApp\nMake sure you have WhatsApp app installed",
+  "filed_required": "{{field}} field is required",
+  "error_while_action": "Error while {{action}}",
+  "no_data_available": "No {{data}} available",
+  "error_load_data": "Error while loading {{data}}",
+  "login": "Login",
+  "username": "Username",
+  "password": "Password",
+  "home": "Home",
+  "notifications": "Notifications"
+}
