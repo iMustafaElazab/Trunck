@@ -4,6 +4,7 @@ import type {RootStackParamList} from '@src/navigation';
 
 // Screens.
 import {Splash, Login, Home, Notifications} from '@src/screens';
+import Register from '@src/screens/Register';
 
 // Navigators.
 // TODO: Add navigators imports here.
@@ -21,6 +22,7 @@ export default React.memo(() => (
     {/* Screens */}
     <stack.Screen name="splash" component={Splash} />
     <stack.Screen name="login" component={Login} />
+    <stack.Screen name="register" component={Register} />
     <stack.Screen name="home" component={Home} />
     <stack.Screen name="notifications" component={Notifications} />
 

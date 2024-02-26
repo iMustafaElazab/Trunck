@@ -17,7 +17,16 @@
   "error_load_data": "Error while loading {{data}}",
   "login": "Login",
   "username": "Username",
+  "email-address": "Email-Address",
+  "phone": "Phone",
   "password": "Password",
   "home": "Home",
-  "notifications": "Notifications"
+  "notifications": "Notifications",
+  "name-empty-error": "name must not be empty",
+  "email-empty-error": "email must not be empty",
+  "email-valid-error": "email pattern is not valid",
+  "phone-empty-error": "phone must not be empty",
+  "phone-valid-error": "phone pattern is not valid",
+  "password-empty-error": "password pattern is not valid",
+  "register": "Register"
 }

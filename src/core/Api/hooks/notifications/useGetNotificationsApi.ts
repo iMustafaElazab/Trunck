@@ -42,6 +42,7 @@ const useGetNotificationsApi = (
       // TODO: Change `params` object to match API.
       params: {page: 1, size: 10},
     },
+    select: data => data,
     getNextPageParam: (lastPage, _allPages, lastPageParam) =>
       lastPage.currentPage === lastPage.lastPage
         ? undefined

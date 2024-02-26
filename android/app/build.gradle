@@ -95,10 +95,10 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.first"
+    namespace "mostafa.first.temp"
 
     defaultConfig {
-        applicationId "com.first"
+        applicationId "mostafa.first.temp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -109,7 +109,7 @@ android {
 
         // Added for "react-native-config" to support the use of "applicationIdSuffix"
         // or different "applicationId" than the package name.
-        resValue "string", "build_config_package", "com.first"
+        resValue "string", "build_config_package", "mostafa.first.temp"
     }
 
     signingConfigs {
@@ -126,7 +126,7 @@ android {
     buildTypes {
         debug {
           // TODO: Create key first and add its data in gradle.properties
-          // signingConfig signingConfigs.release
+          signingConfig signingConfigs.release
           matchingFallbacks = ['debug', 'release']
         }
 
@@ -134,7 +134,7 @@ android {
             // Caution! In production, you need to generate your own keystore file.
             // see https://reactnative.dev/docs/signed-apk-android.
             // TODO: Create key first and add its data in gradle.properties
-            // signingConfig signingConfigs.release
+            signingConfig signingConfigs.release
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
 

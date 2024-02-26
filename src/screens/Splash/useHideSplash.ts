@@ -26,7 +26,8 @@ export const useHideSplash = (props: UseHideSplashProps) => {
 
   const openNextScreen = React.useCallback(() => {
     console.info(getLogMessage('openNextScreen'));
-    navigation.replace(stateUser ? 'home' : 'login');
+    // navigation.replace(stateUser ? 'home' : 'login');
+    navigation.replace('register');
   }, [navigation, stateUser]);
 
   const hideSplash = React.useCallback(async () => {

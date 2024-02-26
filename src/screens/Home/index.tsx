@@ -1,19 +1,17 @@
-import {Text} from '@eslam-elmeniawy/react-native-common-components';
 import * as React from 'react';
 import {Screen, ScrollContainer} from '@src/components';
 import {useGetUserDetailsApi} from '@src/core';
 import {useFocusNotifyOnChangeProps, useRefreshOnFocus} from '@src/utils';
+import Body from './Body';
 import Header from './Header';
 import styles from './styles';
 
 export default React.memo(() => {
   const notifyOnChangeProps = useFocusNotifyOnChangeProps();
 
-  const {
-    data: userData,
-    dataUpdatedAt,
-    refetch,
-  } = useGetUserDetailsApi({notifyOnChangeProps: notifyOnChangeProps?.()});
+  const {refetch} = useGetUserDetailsApi({
+    notifyOnChangeProps: notifyOnChangeProps?.(),
+  });
 
   useRefreshOnFocus(refetch);
 
@@ -23,9 +21,7 @@ export default React.memo(() => {
       <ScrollContainer
         style={styles.scrollView}
         contentContainerStyle={styles.scrollViewContent}>
-        <Text>{`UserData: ${JSON.stringify(
-          userData,
-        )}\n\nDataUpdatedAt: ${new Date(dataUpdatedAt)}`}</Text>
+        <Body />
       </ScrollContainer>
     </Screen>
   );

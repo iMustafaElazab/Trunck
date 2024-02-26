@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {default as Config} from 'react-native-config';
+
 import type {ServerError, ServerErrorResponse} from '@src/core';
 import {translate, getCurrentLocale} from '@src/core/I18n';
 import {setErrorDialogMessage, store} from '@src/store';
@@ -190,7 +190,7 @@ const responseRejectedInterceptor = (error: any) => {
 };
 
 const httpClient = axios.create({
-  baseURL: Config.API_URL,
+  baseURL: 'https://agrii.roqay.dev/api/v1',
   timeout: 60 * 1 * 1000,
   timeoutErrorMessage: translate('network_error'),
 });

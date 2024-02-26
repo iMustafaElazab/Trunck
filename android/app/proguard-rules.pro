@@ -26,5 +26,5 @@
 }
 
 # Proguard rules for "react-native-config".
--keep class com.first.BuildConfig { *; }
+-keep class mostafa.first.temp.BuildConfig { *; }
 -keepresources string/build_config_package

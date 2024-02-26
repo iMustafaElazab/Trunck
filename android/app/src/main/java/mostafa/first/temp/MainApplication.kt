@@ -1,4 +1,4 @@
-package com.first
+package mostafa.first.temp
 
 import androidx.multidex.MultiDexApplication
 import com.facebook.react.PackageList
