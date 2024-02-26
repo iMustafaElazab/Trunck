@@ -12,3 +12,7 @@ export interface RegisterBody {
   password_confirmation: string;
   customer_type_id: number;
 }
+
+export interface ForgetBody {
+  email: string;
+}

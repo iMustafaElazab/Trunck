@@ -2215,6 +2215,15 @@
     invariant "^2.2.4"
     nullthrows "^1.1.1"
 
+"@react-navigation/bottom-tabs@^6.5.14":
+  version "6.5.14"
+  resolved "https://registry.yarnpkg.com/@react-navigation/bottom-tabs/-/bottom-tabs-6.5.14.tgz#8e09c30c66cc9adb0cc281b4db7313a1197b1f79"
+  integrity sha512-3gDVwuaPQIxkJm3PI5vATDr9Un3Z0tplfkzM/TWL2igE0Kd/hymWz0jZppBJbuKi+Q25i/74b+3VOVKuiE43AQ==
+  dependencies:
+    "@react-navigation/elements" "^1.3.24"
+    color "^4.2.3"
+    warn-once "^0.1.0"
+
 "@react-navigation/core@^6.4.11":
   version "6.4.11"
   resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-6.4.11.tgz#481274aff0684757545bf6eb874260af7e8b27d1"
@@ -2231,6 +2240,13 @@
   version "1.3.24"
   resolved "https://registry.yarnpkg.com/@react-navigation/elements/-/elements-1.3.24.tgz#184eabb869338dd268761e9d0f3a4c96f8e322f3"
   integrity sha512-zgZV50qjlv3/N+MzNV0DIRmtg30IZcR0+LaTQRP/OxLtveQkgUG6wIEKl6SXO2ykC9yF9V82msdCzKl9uPSQCA==
+
+"@react-navigation/material-bottom-tabs@^6.2.22":
+  version "6.2.22"
+  resolved "https://registry.yarnpkg.com/@react-navigation/material-bottom-tabs/-/material-bottom-tabs-6.2.22.tgz#294fa79c26f0b7dcc1741e840b1e56b358f334a8"
+  integrity sha512-JRkdoOZDV8/DQOMyraT0DjJ5Z2CY+cq2jRT43RK8w3F8K1JbtAWriaJySE13guaCAh9OAMq2uo8LR56kQpFUMA==
+  dependencies:
+    "@react-navigation/elements" "^1.3.24"
 
 "@react-navigation/native-stack@^6.9.17":
   version "6.9.20"

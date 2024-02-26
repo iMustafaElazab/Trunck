@@ -28,5 +28,9 @@
   "phone-empty-error": "phone must not be empty",
   "phone-valid-error": "phone pattern is not valid",
   "password-empty-error": "password pattern is not valid",
-  "register": "Register"
+  "register": "Register",
+  "stores": "Stores",
+  "auctions": "Auctions",
+  "category": "Category",
+  "menu": "Menu"
 }

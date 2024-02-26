@@ -5,3 +5,5 @@ export type {default as NotificationsResponse} from './NotificationsResponse';
 export type {default as PagingResponse} from './PagingResponse';
 export type {default as ServerErrorResponse} from './ServerErrorResponse';
 export type {default as UpdateFcmTokenResponse} from './UpdateFcmTokenResponse';
+export type {default as HomeResponse} from './HomeResponse';
+export type {default as BaseResponse} from './BaseResponse';
