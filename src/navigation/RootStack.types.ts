@@ -9,6 +9,8 @@ type RootStackParamList = {
   register: undefined;
   forgetـpassword: undefined;
   homeTabs: undefined;
+  productDetail: undefined;
+  cart: undefined;
 };
 
 type MainTabsParamList = {

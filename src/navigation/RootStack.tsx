@@ -6,7 +6,9 @@ import type {RootStackParamList} from '@src/navigation';
 import {Splash, Login, Notifications} from '@src/screens';
 import ForgetPassword from '@src/screens/Auth/ForgetPassword';
 import Register from '@src/screens/Auth/Register';
+import Cart from '@src/screens/Cart';
 import HomeTabs from '@src/screens/Home/HomeTabs';
+import Product from '@src/screens/Product';
 
 // Navigators.
 // TODO: Add navigators imports here.
@@ -28,6 +30,8 @@ export default React.memo(() => (
     <stack.Screen name="notifications" component={Notifications} />
     <stack.Screen name="forgetـpassword" component={ForgetPassword} />
     <stack.Screen name="homeTabs" component={HomeTabs} />
+    <stack.Screen name="productDetail" component={Product} />
+    <stack.Screen name="cart" component={Cart} />
 
     {/* Navigators */}
     {/* TODO: Add nested navigators here. */}

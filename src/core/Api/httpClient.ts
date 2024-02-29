@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import type {ServerError, ServerErrorResponse} from '@src/core';
-import {translate, getCurrentLocale} from '@src/core/I18n';
+import {translate} from '@src/core/I18n';
 import {setErrorDialogMessage, store} from '@src/store';
 import ConsoleColors from './ConsoleColors';
 import skip401Urls from './skip401Urls';
@@ -16,13 +16,16 @@ const getLogMessage = (message: string) => `## HttpClient:: ${message}`;
 const addHeaders = (config: InternalAxiosRequestConfig<any>) => {
   config.headers.Accept = 'application/json';
   config.headers['Content-Type'] = 'application/json';
-  config.headers['Accept-Language'] = getCurrentLocale();
+  //config.headers['Accept-Language'] = 'en';
+  config.headers.Authorization =
+    'tDtOTUJ4agpeYP3QekyIHQrMNoEvvFWEDzZaSdtv0UmtgLQXH1QDg72xiv5FdG6m5WJYYx';
   config.headers['cache-control'] = 'no-cache';
-  const token = store.getState().user?.user?.apiToken;
+  config.headers.lang = 'en';
+  // const token = store.getState().user?.user?.apiToken;
 
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
+  // if (token) {
+  //   config.headers.Authorization = `Bearer ${token}`;
+  // }
 };
 
 const getLogMethodColor = (method?: string) => {
@@ -190,11 +193,10 @@ const responseRejectedInterceptor = (error: any) => {
 };
 
 const httpClient = axios.create({
-  baseURL: 'https://agrii.roqay.dev/api/v1',
+  baseURL: 'https://student.valuxapps.com/api/',
   timeout: 60 * 1 * 1000,
   timeoutErrorMessage: translate('network_error'),
 });
-
 httpClient.interceptors.request.use(
   requestFulfilledInterceptor,
   requestRejectedInterceptor,
