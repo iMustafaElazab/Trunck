@@ -15,6 +15,10 @@ export default React.memo((item: ProductsProps) => {
   const navigation =
     useNavigation<RootStackScreenProps<'homeTabs'>['navigation']>();
 
+  const getLogMessage = (message: string) =>
+    `## Header Product Screen: ${message}`;
+  console.info(getLogMessage('productList'), item);
+
   return (
     <Pressable
       style={styles.contain}

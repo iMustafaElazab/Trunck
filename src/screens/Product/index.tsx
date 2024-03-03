@@ -1,6 +1,9 @@
 import {Button} from '@eslam-elmeniawy/react-native-common-components';
 import * as React from 'react';
+
+import {ToastAndroid} from 'react-native';
 import {ms} from 'react-native-size-matters';
+
 import {Screen, ScrollContainer} from '@src/components';
 import useAddCartApi from '@src/core/Api/hooks/cart/useCartApi';
 import {NavigationParamsKeys, type RootStackScreenProps} from '@src/navigation';
@@ -14,7 +17,43 @@ export default React.memo((props: RootStackScreenProps<'productDetail'>) => {
 
   const {navigation, route} = props;
   const productId = route.params?.[NavigationParamsKeys.PRODUCT_ID];
-  const {mutate: callAddCart} = useAddCartApi();
+
+  const {
+    mutate: callAddCart,
+    isSuccess,
+    isError,
+    data: addCart,
+    error,
+  } = useAddCartApi();
+
+  const showToast = (message: string) => {
+    ToastAndroid.show(message, ToastAndroid.SHORT);
+  };
+
+  const handleSuccess = React.useCallback(() => {
+    if (addCart) {
+      showToast(addCart.message);
+    }
+  }, [addCart]);
+
+  const handleError = React.useCallback(() => {
+    console.error(getLogMessage('handleError'), error);
+
+    if (error) {
+      showToast(error.message);
+    }
+  }, [error]);
+
+  React.useEffect(() => {
+    if (isSuccess) {
+      handleSuccess();
+    }
+
+    if (isError) {
+      handleError();
+    }
+  }, [isSuccess, isError, handleSuccess, handleError]);
+
   return (
     <Screen style={{flex: 1}}>
       <Header />

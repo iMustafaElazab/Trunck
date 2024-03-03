@@ -7,8 +7,8 @@ interface HomeResponse {
 export interface Banner {
   id: number;
   image: string;
-  category: any;
-  product: any;
+  category: CategoryResponse;
+  product: Product;
 }
 
 export interface Product {
@@ -22,5 +22,11 @@ export interface Product {
   images: string[];
   in_favorites: boolean;
   in_cart: boolean;
+}
+
+export interface CategoryResponse {
+  id: number;
+  name: string;
+  image: string;
 }
 export default HomeResponse;

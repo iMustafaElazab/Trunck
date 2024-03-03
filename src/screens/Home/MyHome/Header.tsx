@@ -1,4 +1,5 @@
 import {IconButton} from '@eslam-elmeniawy/react-native-common-components';
+import {useNavigation} from '@react-navigation/native';
 import * as React from 'react';
 import {View} from 'react-native';
 import {Text} from 'react-native-paper';
@@ -6,8 +7,9 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import type {RootStackScreenProps} from '@src/navigation';
 import styles from './styles';
 
-export default React.memo((props: RootStackScreenProps<'homeTabs'>) => {
-  const {navigation} = props;
+export default React.memo(() => {
+  const navigation =
+    useNavigation<RootStackScreenProps<'homeTabs'>['navigation']>();
   const textIconStart = (name: string) => (
     <View style={{flexDirection: 'row'}}>
       <Icon name="magnify" size={24} />
