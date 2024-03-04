@@ -6,8 +6,15 @@ import {TouchableOpacity} from 'react-native';
 import {TextInput as PaperInput} from 'react-native-paper';
 import {AppColors} from '@src/enums';
 import styles from './styles';
+import type {FormValues} from './types';
+import type {Control, FieldErrors} from 'react-hook-form';
 
-export default React.memo(({control, formErrors}) => {
+interface InputProps {
+  controller: Control<FormValues, any, FormValues>;
+  formErrors: FieldErrors<FormValues>;
+}
+
+export default React.memo((props: InputProps) => {
   const [showPassword, setShowPassword] = React.useState(false);
   const handleIcon = () => {
     setShowPassword(!showPassword);
@@ -16,7 +23,7 @@ export default React.memo(({control, formErrors}) => {
   return (
     <Controller
       name="password"
-      control={control}
+      control={props.controller}
       rules={{
         required: {
           value: true,
@@ -35,7 +42,7 @@ export default React.memo(({control, formErrors}) => {
           underlineColorAndroid={'transparent'}
           activeUnderlineColor="transparent"
           keyboardType="numbers-and-punctuation"
-          errorProps={{errorMessage: formErrors.password?.message}}
+          errorProps={{errorMessage: props.formErrors.password?.message}}
           onBlur={onBlur}
           onChange={onChange}
           onChangeText={onChange}

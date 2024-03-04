@@ -9,6 +9,7 @@ import Register from '@src/screens/Auth/Register';
 import Cart from '@src/screens/Cart';
 import HomeTabs from '@src/screens/Home/HomeTabs';
 import Product from '@src/screens/Product';
+import Profile from '@src/screens/Profile';
 
 // Navigators.
 // TODO: Add navigators imports here.
@@ -32,6 +33,7 @@ export default React.memo(() => (
     <stack.Screen name="homeTabs" component={HomeTabs} />
     <stack.Screen name="productDetail" component={Product} />
     <stack.Screen name="cart" component={Cart} />
+    <stack.Screen name="profileـupdate" component={Profile} />
 
     {/* Navigators */}
     {/* TODO: Add nested navigators here. */}

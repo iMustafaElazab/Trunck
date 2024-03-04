@@ -9,10 +9,17 @@ export interface RegisterBody {
   email: string;
   phone: string;
   password: string;
-  password_confirmation: string;
-  customer_type_id: number;
+  image: string;
 }
 
 export interface ForgetBody {
   email: string;
+}
+
+export interface UpdateBody {
+  name: string;
+  email: string;
+  phone: string;
+  password: string;
+  image: string;
 }

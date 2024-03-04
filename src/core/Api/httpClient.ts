@@ -18,7 +18,7 @@ const addHeaders = (config: InternalAxiosRequestConfig<any>) => {
   config.headers['Content-Type'] = 'application/json';
   //config.headers['Accept-Language'] = 'en';
   config.headers.Authorization =
-    'tDtOTUJ4agpeYP3QekyIHQrMNoEvvFWEDzZaSdtv0UmtgLQXH1QDg72xiv5FdG6m5WJYYx';
+    'Bearer 745|nEtMycRuBJyka3iBcESPxmQoEm4WFV7sCYCqVCx389bf5de9';
   config.headers['cache-control'] = 'no-cache';
   config.headers.lang = 'en';
   // const token = store.getState().user?.user?.apiToken;
@@ -193,7 +193,7 @@ const responseRejectedInterceptor = (error: any) => {
 };
 
 const httpClient = axios.create({
-  baseURL: 'https://student.valuxapps.com/api/',
+  baseURL: 'https://agrii.roqay.dev/api/v1',
   timeout: 60 * 1 * 1000,
   timeoutErrorMessage: translate('network_error'),
 });

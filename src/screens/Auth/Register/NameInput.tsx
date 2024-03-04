@@ -3,13 +3,20 @@ import * as React from 'react';
 import {Controller} from 'react-hook-form';
 import {useTranslation} from 'react-i18next';
 import styles from './styles';
+import type {FormValues} from './types';
+import type {Control, FieldErrors} from 'react-hook-form';
 
-export default React.memo(({control, formErrors}) => {
+interface InputProps {
+  controller: Control<FormValues, any, FormValues>;
+  formErrors: FieldErrors<FormValues>;
+}
+
+export default React.memo((props: InputProps) => {
   const {t: translate} = useTranslation();
   return (
     <Controller
       name="name"
-      control={control}
+      control={props.controller}
       rules={{
         required: {
           value: true,
@@ -23,7 +30,7 @@ export default React.memo(({control, formErrors}) => {
           underlineColorAndroid={'transparent'}
           activeUnderlineColor="transparent"
           style={styles.input}
-          errorProps={{errorMessage: formErrors.name?.message}}
+          errorProps={{errorMessage: props.formErrors.name?.message}}
           onBlur={onBlur}
           onChange={onChange}
           onChangeText={onChange}

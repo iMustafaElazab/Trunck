@@ -5,5 +5,5 @@ export interface FormValues extends FieldValues {
   phone: string;
   email: string;
   password: string;
-  passwordـconfrim: string;
+  image: any;
 }

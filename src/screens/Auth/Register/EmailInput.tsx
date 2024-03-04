@@ -7,13 +7,20 @@ import * as React from 'react';
 import {Controller} from 'react-hook-form';
 import {useTranslation} from 'react-i18next';
 import styles from './styles';
+import type {FormValues} from './types';
+import type {Control, FieldErrors} from 'react-hook-form';
 
-export default React.memo(({control, formErrors}) => {
+interface InputProps {
+  controller: Control<FormValues, any, FormValues>;
+  formErrors: FieldErrors<FormValues>;
+}
+
+export default React.memo((props: InputProps) => {
   const {t: translate} = useTranslation();
   return (
     <Controller
       name="email"
-      control={control}
+      control={props.controller}
       rules={{
         required: {
           value: true,
@@ -32,7 +39,7 @@ export default React.memo(({control, formErrors}) => {
           underlineColor="transparent"
           underlineColorAndroid={'transparent'}
           activeUnderlineColor="transparent"
-          errorProps={{errorMessage: formErrors.email?.message}}
+          errorProps={{errorMessage: props.formErrors.email?.message}}
           onBlur={onBlur}
           onChange={onChange}
           onChangeText={onChange}

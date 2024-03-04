@@ -1000,6 +1000,10 @@ PODS:
     - react-native-config/App (= 1.5.1)
   - react-native-config/App (1.5.1):
     - React-Core
+  - react-native-image-picker (7.1.0):
+    - glog
+    - RCT-Folly (= 2022.05.16.00)
+    - React-Core
   - react-native-mmkv-storage (0.9.1):
     - MMKV (= 1.2.13)
     - React-Core
@@ -1260,6 +1264,7 @@ DEPENDENCIES:
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
   - React-Mapbuffer (from `../node_modules/react-native/ReactCommon`)
   - react-native-config (from `../node_modules/react-native-config`)
+  - react-native-image-picker (from `../node_modules/react-native-image-picker`)
   - react-native-mmkv-storage (from `../node_modules/react-native-mmkv-storage`)
   - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
   - react-native-orientation-locker (from `../node_modules/react-native-orientation-locker`)
@@ -1384,6 +1389,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   react-native-config:
     :path: "../node_modules/react-native-config"
+  react-native-image-picker:
+    :path: "../node_modules/react-native-image-picker"
   react-native-mmkv-storage:
     :path: "../node_modules/react-native-mmkv-storage"
   react-native-netinfo:
@@ -1512,6 +1519,7 @@ SPEC CHECKSUMS:
   React-logger: cb0dd15ac67b00e7b771ef15203edcb29d4a3f8e
   React-Mapbuffer: ac7eff7bcdb1716d18eb7b305ee8c43a9a1ed7c8
   react-native-config: 86038147314e2e6d10ea9972022aa171e6b1d4d8
+  react-native-image-picker: e3b3e0b18a3a33c16a98e4e9c291327a9c3d6f36
   react-native-mmkv-storage: cfb6854594cfdc5f7383a9e464bb025417d1721c
   react-native-netinfo: 299dad906cdbf3b67bcc6f693c807f98bdd127cc
   react-native-orientation-locker: 4409c5b12b65f942e75449872b4f078b6f27af81

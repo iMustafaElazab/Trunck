@@ -1,20 +1,29 @@
 import {useMutation} from '@tanstack/react-query';
-import {
-  type User,
-  type ServerError,
-  type ApiRequest,
-  type RegisterBody,
-  queryAuth,
+import {queryAuth} from '@src/core';
+import type {
+  BaseResponse,
+  ServerError,
+  ApiRequest,
+  RegisterBody,
 } from '@src/core';
+import type RegisterResponse from '../../responses/RegisterResponse';
 import type {UseMutationOptions} from '@tanstack/react-query';
 
 const useRegisterApi = (
   options?: Omit<
-    UseMutationOptions<User, ServerError, ApiRequest<RegisterBody>>,
+    UseMutationOptions<
+      BaseResponse<RegisterResponse>,
+      ServerError,
+      ApiRequest<RegisterBody>
+    >,
     'mutationFn'
   >,
 ) =>
-  useMutation<User, ServerError, ApiRequest<RegisterBody>>({
+  useMutation<
+    BaseResponse<RegisterResponse>,
+    ServerError,
+    ApiRequest<RegisterBody>
+  >({
     mutationFn: request => queryAuth.register(request),
     ...(options ?? {}),
   });

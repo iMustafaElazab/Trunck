@@ -6,6 +6,7 @@ import type {
   LogoutResponse,
   RegisterBody,
   ForgetBody,
+  BaseResponse,
 } from '@src/core';
 import {httpClient} from '@src/core';
 
@@ -17,9 +18,11 @@ const queryAuth = {
       apiToken: `Bearer ${response.data.token}`,
     })),
 
-  register: (request: ApiRequest<RegisterBody>): Promise<User> =>
+  register: (
+    request: ApiRequest<RegisterBody>,
+  ): Promise<BaseResponse<RegisterBody>> =>
     httpClient
-      .post<any>('/auth/signup', request.body)
+      .post<any>('/register', request.body)
       .then(response => response.data),
   // TODO: Change params, endpoint, method, and response mapping based on API requirements.
   logout: () =>

@@ -3,9 +3,10 @@ import * as React from 'react';
 import {View} from 'react-native';
 import {Appbar} from 'react-native-paper';
 import type {RootStackScreenProps} from '@src/navigation';
+
 export default React.memo(() => {
   const navigation =
-    useNavigation<RootStackScreenProps<'productDetail'>['navigation']>();
+    useNavigation<RootStackScreenProps<'profileـupdate'>['navigation']>();
   return (
     <View>
       <Appbar.Header>
@@ -14,7 +15,7 @@ export default React.memo(() => {
             () => navigation.goBack();
           }}
         />
-        <Appbar.Content title="Product Detail" />
+        <Appbar.Content title="Profile Update" />
       </Appbar.Header>
     </View>
   );

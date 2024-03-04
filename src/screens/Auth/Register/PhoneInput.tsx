@@ -1,23 +1,26 @@
-import {TextInput, phoneRegExp} from '@eslam-elmeniawy/react-native-common-components';
+import {TextInput} from '@eslam-elmeniawy/react-native-common-components';
 import * as React from 'react';
 import {Controller} from 'react-hook-form';
 import {useTranslation} from 'react-i18next';
 import styles from './styles';
+import type {FormValues} from './types';
+import type {Control, FieldErrors} from 'react-hook-form';
 
-export default React.memo(({control, formErrors}) => {
+interface InputProps {
+  controller: Control<FormValues, any, FormValues>;
+  formErrors: FieldErrors<FormValues>;
+}
+
+export default React.memo((props: InputProps) => {
   const {t: translate} = useTranslation();
   return (
     <Controller
       name="phone"
-      control={control}
+      control={props.controller}
       rules={{
         required: {
           value: true,
           message: translate('phone-empty-error'),
-        },
-        pattern: {
-          value: phoneRegExp,
-          message: translate('phone-valid-error'),
         },
       }}
       render={({field: {onChange, onBlur, value}}) => (
@@ -28,7 +31,7 @@ export default React.memo(({control, formErrors}) => {
           activeUnderlineColor="transparent"
           placeholder={translate('phone')}
           keyboardType="phone-pad"
-          errorProps={{errorMessage: formErrors.phone?.message}}
+          errorProps={{errorMessage: props.formErrors.phone?.message}}
           onBlur={onBlur}
           onChange={onChange}
           onChangeText={onChange}

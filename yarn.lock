@@ -7767,6 +7767,11 @@ react-native-gesture-handler@^2.14.1:
     lodash "^4.17.21"
     prop-types "^15.7.2"
 
+react-native-image-picker@^7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-7.1.0.tgz#1a41cc45ccdc177c2ebf7c7accee0ceadc36abd8"
+  integrity sha512-An0hn2mwqjGAA2mbsXdHRTyoMMklGPT9stIjE2zvkegU7CdoFhowqvVHfnELJNZnfAiSQuIaeY//z0r1R0lsgw==
+
 react-native-image-slider-box@^2.0.7:
   version "2.0.7"
   resolved "https://registry.yarnpkg.com/react-native-image-slider-box/-/react-native-image-slider-box-2.0.7.tgz#08d0d39a8328741638dff0681c8dc7efc96fd38a"

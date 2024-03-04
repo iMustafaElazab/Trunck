@@ -2,13 +2,12 @@ import {Button} from '@eslam-elmeniawy/react-native-common-components';
 import * as React from 'react';
 import {useForm} from 'react-hook-form';
 import {useTranslation} from 'react-i18next';
-
-import {Keyboard} from 'react-native';
-
+import {Keyboard, View} from 'react-native';
+import Space, {DIRECTION} from '@src/components/Space';
 import useRegisterApi from '@src/core/Api/hooks/auth/useRegisterApi';
 import EmailInput from './EmailInput';
+import ImageInput from './ImageInput';
 import NameInput from './NameInput';
-import PasswordConfirmInput from './PasswordConfirmInput';
 import PasswordInput from './PasswordInput';
 import PhoneInput from './PhoneInput';
 import styles from './styles';
@@ -22,14 +21,13 @@ export default React.memo(() => {
     control,
     handleSubmit,
     formState: {errors: formErrors},
-    getValues,
   } = useForm<FormValues>({
     defaultValues: {
       name: '',
       email: '',
       phone: '',
       password: '',
-      passwordـconfrim: '',
+      image: '',
     },
   });
 
@@ -66,18 +64,23 @@ export default React.memo(() => {
     }
   }, [isSuccess, isError, handleSuccess, handleError]);
 
+  const handleImageSelected = uri => {
+    // Do something with the selected URI
+    console.log('Selected URI:', uri);
+  };
+
   const getInputs = () => (
-    <>
-      <NameInput control={control} formErrors={formErrors} />
-      <EmailInput control={control} formErrors={formErrors} />
-      <PhoneInput control={control} formErrors={formErrors} />
-      <PasswordInput control={control} formErrors={formErrors} />
-      <PasswordConfirmInput
-        control={control}
-        formErrors={formErrors}
-        getValues={getValues}
-      />
-    </>
+    <View style={styles.rowCenter}>
+      <ImageInput onImageSelected={handleImageSelected} uri={null} />
+      <Space direction={DIRECTION.TOP} space={16} />
+      <NameInput controller={control} formErrors={formErrors} />
+      <Space direction={DIRECTION.TOP} space={16} />
+      <EmailInput controller={control} formErrors={formErrors} />
+      <Space direction={DIRECTION.TOP} space={16} />
+      <PhoneInput controller={control} formErrors={formErrors} />
+      <Space direction={DIRECTION.TOP} space={16} />
+      <PasswordInput controller={control} formErrors={formErrors} />
+    </View>
   );
 
   const getForm = () => (
@@ -94,14 +97,14 @@ export default React.memo(() => {
   const onSubmitPress = async (data: FormValues) => {
     console.log(getLogMessage('data'), data);
     Keyboard.dismiss();
+    //const formData = new FormData();
     callRegisterApi({
       body: {
         name: data.name,
         email: data.email,
         phone: data.phone,
         password: data.password,
-        password_confirmation: data.passwordـconfrim,
-        customer_type_id: 5,
+        image: '',
       },
     });
   };

@@ -11,6 +11,7 @@ type RootStackParamList = {
   homeTabs: undefined;
   productDetail: undefined;
   cart: undefined;
+  profileـupdate: undefined;
 };
 
 type MainTabsParamList = {
