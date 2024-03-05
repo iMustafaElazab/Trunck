@@ -15,7 +15,7 @@ const getLogMessage = (message: string) => `## HttpClient:: ${message}`;
 
 const addHeaders = (config: InternalAxiosRequestConfig<any>) => {
   config.headers.Accept = 'application/json';
-  config.headers['Content-Type'] = 'application/json';
+  // config.headers['Content-Type'] = 'application/json';
   //config.headers['Accept-Language'] = 'en';
   config.headers.Authorization =
     'Bearer 745|nEtMycRuBJyka3iBcESPxmQoEm4WFV7sCYCqVCx389bf5de9';

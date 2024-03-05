@@ -3,7 +3,7 @@ import type {ApiRequest, BaseResponse, ServerError} from '@src/core';
 import queryProfile from '../../services/queryProfile';
 import type {UseMutationOptions} from '@tanstack/react-query';
 
-const usePutProfileApi = (
+const useUpdateProfileApi = (
   options?: Omit<
     UseMutationOptions<BaseResponse<any>, ServerError, ApiRequest<FormData>>,
     'mutationFn'
@@ -21,4 +21,4 @@ const usePutProfileApi = (
   });
 };
 
-export default usePutProfileApi;
+export default useUpdateProfileApi;

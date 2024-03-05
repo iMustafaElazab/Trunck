@@ -1,6 +1,5 @@
 import {Text} from '@eslam-elmeniawy/react-native-common-components';
 import * as React from 'react';
-
 import {Image, View} from 'react-native';
 import {ScaledSheet, ms} from 'react-native-size-matters';
 import type {Banner} from '@src/core/Api/responses/HomeResponse';

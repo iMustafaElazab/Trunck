@@ -22,11 +22,13 @@ const queryAuth = {
     request: ApiRequest<RegisterBody>,
   ): Promise<BaseResponse<RegisterBody>> =>
     httpClient
-      .post<any>('/register', request.body)
+      .post<any>('/auth/signup', request.body)
       .then(response => response.data),
   // TODO: Change params, endpoint, method, and response mapping based on API requirements.
   logout: () =>
-    httpClient.post<LogoutResponse>('/logout').then(response => response.data),
+    httpClient
+      .post<LogoutResponse>('/auth/logout')
+      .then(response => response.data),
 
   forgetPassword: (request: ApiRequest<ForgetBody>) =>
     httpClient

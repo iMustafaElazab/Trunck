@@ -29,8 +29,9 @@
   "phone-valid-error": "حقل رقم الجوال ليس صحيح",
   "password-empty-error": "حقل رقم المرور مطلوب",
   "register": "انشاء حساب",
-  "stores": "Stores",
+  "stores": "متاجر",
   "auctions": "Auctions",
   "category": "Category",
-  "menu": "Menu"
+  "menu": "Menu",
+  "update": "تحديث"
 }

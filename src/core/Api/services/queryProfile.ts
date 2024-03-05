@@ -7,7 +7,9 @@ const queryProfile = {
 
   updateProfile: (request: ApiRequest<FormData>) =>
     httpClient
-      .putForm<any>('/auth/profile-update', request.body)
+      .postForm<any>('/auth/profile-update', request.body, {
+        headers: {'Content-Type': 'multipart/form-data'},
+      })
       .then(response => response.data),
 };
 
