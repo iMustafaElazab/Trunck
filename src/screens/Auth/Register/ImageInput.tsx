@@ -4,18 +4,15 @@ import {
 } from '@eslam-elmeniawy/react-native-common-components';
 import * as React from 'react';
 import {Pressable, View} from 'react-native';
-import * as ImagePicker from 'react-native-image-picker';
+import ImagePicker from 'react-native-image-crop-picker';
 import {Modal, Portal} from 'react-native-paper';
 import {vs} from 'react-native-size-matters';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import styles from './styles';
-import type {
-  CameraOptions,
-  ImagePickerResponse,
-} from 'react-native-image-picker';
+import type {ImageOrVideo} from 'react-native-image-crop-picker';
 
 interface ImagePickerProps {
-  onImageSelected: (uri: string) => void;
+  onImageSelected: (image: ImageOrVideo) => void;
   uri: string | any;
 }
 
@@ -24,8 +21,9 @@ export default React.memo((props: ImagePickerProps) => {
   const [visible, setVisible] = React.useState(false);
   const showModal = () => setVisible(true);
   const hideModal = () => setVisible(false);
-  const [pickerResponse, setPickerResponse] =
-    React.useState<ImagePickerResponse | null>(null);
+  const [pickedImage, setPickedImage] = React.useState<
+    ImageOrVideo | undefined
+  >(undefined);
 
   const showViewModal = () => (
     <Portal>
@@ -43,42 +41,52 @@ export default React.memo((props: ImagePickerProps) => {
     </Portal>
   );
 
-  const onImageLibraryPress = React.useCallback(() => {
-    const options: CameraOptions = {
-      durationLimit: 1,
-      mediaType: 'photo',
-      includeBase64: false,
-    };
-    ImagePicker.launchImageLibrary(options, handlePickerResponse);
-  }, []);
-
-  const onCameraPress = React.useCallback(() => {
-    const options: CameraOptions = {
-      durationLimit: 1,
-      saveToPhotos: true,
-      mediaType: 'photo',
-      includeBase64: false,
-      cameraType: 'back',
-    };
-    ImagePicker.launchCamera(options, handlePickerResponse);
-  }, []);
-
-  const handlePickerResponse = (response: ImagePickerResponse) => {
-    setPickerResponse(response);
-    hideModal();
-    if (response?.assets && response.assets[0].uri) {
-      props?.onImageSelected(response.assets[0].uri);
+  const onImageLibraryPress = React.useCallback(async () => {
+    try {
+      await ImagePicker.openPicker({
+        width: 500,
+        height: 500,
+        cropping: true,
+      })
+        .then(image => {
+          setPickedImage(image);
+          props.onImageSelected(image);
+          console.log(image);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    } catch (error) {
+      console.error('Error capturing or cropping image:', error);
     }
-  };
+  }, []);
 
-  const uri = pickerResponse?.assets && pickerResponse.assets[0].uri;
+  const onCameraPress = React.useCallback(async () => {
+    try {
+      await ImagePicker.openCamera({
+        width: 500,
+        height: 500,
+        cropping: true,
+      })
+        .then(image => {
+          setPickedImage(image);
+          props.onImageSelected(image);
+          console.log(image);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    } catch (error) {
+      console.error('Error capturing or cropping image:', error);
+    }
+  }, []);
 
-  console.info(getLogMessage('uri'), uri);
+  console.info(getLogMessage('uri'), pickedImage);
 
   return (
     <View style={styles.imageContain}>
       <ImagePlaceholder
-        source={props.uri || uri}
+        source={pickedImage?.path}
         placeholder={require('../../../assets/images/bootsplash_logo.png')}
         resizeMode="stretch"
         size={120}

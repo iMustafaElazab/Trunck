@@ -13,11 +13,15 @@ import PasswordInput from '../Auth/Register/PasswordInput';
 import PhoneInput from '../Auth/Register/PhoneInput';
 import styles from './styles';
 import type {FormValues} from '../Auth/Register/types';
+import type {ImageOrVideo} from 'react-native-image-crop-picker';
 
 export default React.memo(() => {
   const getLogMessage = (message: string) => `## Body Screen: ${message}`;
   const {t: translate} = useTranslation();
-  const [imageProfile, setImageProfile] = React.useState(null);
+  const [avatar, setAvatar] = React.useState<string | undefined>(undefined);
+  const [imageProfile, setImageProfile] = React.useState<
+    ImageOrVideo | undefined
+  >(undefined);
 
   const {data: profile, isSuccess: isGetProfileSucess} = useGetProfileApi();
   const {mutate: callUpdateApi} = useUpdateProfileApi();
@@ -28,7 +32,7 @@ export default React.memo(() => {
       setValue('name', profile?.data?.user?.name);
       setValue('phone', profile?.data?.user?.phone);
       setValue('email', profile?.data?.user?.email);
-      setImageProfile(profile?.data?.user?.image);
+      setAvatar(profile?.data?.user?.image.url);
     }
   }, [isGetProfileSucess, profile]);
 
@@ -43,7 +47,7 @@ export default React.memo(() => {
       email: '',
       phone: '',
       password: '',
-      image: imageProfile,
+      image: avatar,
     },
   });
 
@@ -71,15 +75,15 @@ export default React.memo(() => {
   //   }
   // }, [isSuccess, isError, handleSuccess, handleError]);
 
-  const handleImageSelected = uri => {
-    setImageProfile(uri);
+  const handleImageSelected = (image: ImageOrVideo) => {
+    setImageProfile(image);
     // Do something with the selected URI
-    console.log('Selected URI:', uri);
+    console.log('Selected URI:', image);
   };
 
   const getInputs = () => (
     <View style={styles.rowCenter}>
-      <ImageInput onImageSelected={handleImageSelected} uri={imageProfile} />
+      <ImageInput onImageSelected={handleImageSelected} uri={avatar} />
       <Space direction={DIRECTION.TOP} space={16} />
       <NameInput controller={control} formErrors={formErrors} />
       <Space direction={DIRECTION.TOP} space={16} />
@@ -110,12 +114,13 @@ export default React.memo(() => {
     body.append('email', data.email);
     body.append('phone', data.phone);
     body.append('lang', 'en');
-    body.append('file', {
-      uri: imageProfile,
-      type: 'image/jpeg',
-      name: 'photo',
-    });
-    console.log(getLogMessage('formData'), body);
+    if (imageProfile) {
+      body.append('file', {
+        uri: imageProfile?.path,
+        type: imageProfile?.mime || 'image/jpeg',
+        name: imageProfile?.filename || 'profile_image.jpg',
+      });
+    }
     callUpdateApi({body: body});
   };
 

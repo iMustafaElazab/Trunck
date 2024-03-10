@@ -1,9 +1,12 @@
 import type {ApiRequest, BaseResponse, PagingResponse} from '@src/core';
 import {httpClient} from '@src/core';
+import type {HomeResponse} from '../responses/HomeResponse';
 
 const queryHome = {
   home: () =>
-    httpClient.get<BaseResponse<any>>('/home').then(response => response.data),
+    httpClient
+      .get<BaseResponse<HomeResponse>>('/home')
+      .then(response => response.data),
 
   productDetail: (
     request: ApiRequest<any, string | number>,

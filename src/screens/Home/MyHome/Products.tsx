@@ -3,12 +3,12 @@ import {useNavigation} from '@react-navigation/native';
 import * as React from 'react';
 import {Image, Pressable, View} from 'react-native';
 import {ScaledSheet, ms} from 'react-native-size-matters';
-import type {Product} from '@src/core/Api/responses/HomeResponse';
+import type {FeaturedProduct} from '@src/core/Api/responses/HomeResponse';
 import {AppColors} from '@src/enums';
 import {NavigationParamsKeys, type RootStackScreenProps} from '@src/navigation';
 
 interface ProductsProps {
-  item: Product;
+  item: FeaturedProduct;
 }
 
 export default React.memo((item: ProductsProps) => {
@@ -30,7 +30,7 @@ export default React.memo((item: ProductsProps) => {
       <View style={styles.contain}>
         <Image
           style={styles.image}
-          source={{uri: item.item.image}}
+          source={{uri: item.item.image.path}}
           resizeMode="contain"
         />
 
@@ -41,7 +41,7 @@ export default React.memo((item: ProductsProps) => {
           {item.item.description}
         </Text>
         <Text numberOfLines={1} ellipsizeMode="tail">
-          {item.item.price}
+          {item.item.prices[0].price}
         </Text>
         <Text numberOfLines={1} ellipsizeMode="tail">
           {item.item.discount}

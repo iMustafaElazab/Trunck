@@ -12,10 +12,12 @@ import PasswordInput from './PasswordInput';
 import PhoneInput from './PhoneInput';
 import styles from './styles';
 import type {FormValues} from './types';
+import type {ImageOrVideo} from 'react-native-image-crop-picker';
 
 export default React.memo(() => {
   const getLogMessage = (message: string) => `## Register Screen: ${message}`;
   const {t: translate} = useTranslation();
+  const [,] = React.useState<ImageOrVideo | undefined>(undefined);
 
   const {
     control,
@@ -64,9 +66,9 @@ export default React.memo(() => {
     }
   }, [isSuccess, isError, handleSuccess, handleError]);
 
-  const handleImageSelected = uri => {
+  const handleImageSelected = (image: ImageOrVideo) => {
     // Do something with the selected URI
-    console.log('Selected URI:', uri);
+    console.log('Selected URI:', image);
   };
 
   const getInputs = () => (
